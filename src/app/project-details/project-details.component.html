@@ -1,0 +1,21 @@
+<div *ngIf="pokemon; else elseblock">
+  <img [src]="pokemon.img" alt="">
+  <h1>{{pokemon.name}}</h1>
+  <h2>
+    <span *ngIf="pokemon.type.length > 1; else showType" >Types:</span>
+    <ng-template #showType> <span>Type:</span></ng-template>
+   </h2>
+   <h4 *ngFor="let type of pokemon.type"> {{ type }} </h4>
+ <h3> Height: {{pokemon.height}}</h3>
+ <h3>Weight: {{pokemon.weight}}</h3>
+ <h3>Weak Against: </h3>
+   <h4 *ngFor="let weakness of pokemon.weaknesses">{{weakness}} </h4>
+
+
+</div>
+
+
+
+<ng-template #elseblock>
+  <h1>Select A Pokemon!</h1>
+</ng-template>
